@@ -33,7 +33,7 @@ body {
     align-items: center;
     list-style-type: none;
     gap: 2em;
-
+    color: #f7e9ce;
    }
 
    li {
@@ -49,18 +49,23 @@ body {
     background-color: #ffffff5c; */
     width: 50vw;
     padding: 1rem;
-    margin: 50px;
+    /* I removed the margin to move the about section up */
     margin-left: 40%;
+    color: #712e25;
    }
 
    .intro {
     width: 80%;
-    color: #fefe;
+    color: #712e25;
    }
+
    .search {
     font-size: 1.5rem;
-    padding: 10px;
-    border-radius: 5px;
-    color: rgba(62, 11, 11, 0.721);
+    padding: 12px;
+    border-radius: 30px;
+    border-color: #712e25;
+    color: #712e25;
+    background-color: #f7e9ce;
     cursor: pointer;
+    margin-top: 35px;
    }
