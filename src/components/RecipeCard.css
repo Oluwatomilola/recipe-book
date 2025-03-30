@@ -1,41 +1,53 @@
 .recipe-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 1rem auto;
-    max-width: 600px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .recipe-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-  
-  .recipe-card p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .recipe-card p strong {
-    color: #000;
-  }
-  
-  .recipe-card button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #dc3545;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .recipe-card button:hover {
-    background-color: #a71d2a;
-  }
+  background-color: #f7e9ce;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recipe-title {
+  font-size: 1.5rem;
+  color: #712e25;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-description {
+  font-size: 1rem;
+  color: #555;
+}
+
+.recipe-time {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.full-recipe-button {
+  background-color: #712e25;
+  color: #f7e9ce;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.full-recipe-button:hover {
+  background-color: #f7e9ce;
+  color: #712e25;
+}
+
+/* Grid layout for recipe cards */
+.recipe-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  justify-items: center;
+}

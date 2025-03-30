@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './RecipeForm.css'; 
+import './RecipeForm.css';
 
-const RecipeForm = ({ addRecipe }) => {
+const RecipeForm = ({ addRecipe, closeForm }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [ingredients, setIngredients] = useState('');
@@ -72,7 +72,12 @@ const RecipeForm = ({ addRecipe }) => {
         value={cookingTime}
         onChange={(e) => setCookingTime(e.target.value)}
       />
-      <button type="submit">Add Recipe</button>
+      <div className="form-buttons">
+        <button type="submit">Add Recipe</button>
+        <button type="button" onClick={closeForm}>
+          Close
+        </button>
+      </div>
     </form>
   );
 };
