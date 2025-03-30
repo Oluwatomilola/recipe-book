@@ -1,20 +1,18 @@
 import './App.css';
-import { Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Use BrowserRouter
 import Home from './pages/Home';
-import RecipeList from './components/RecipeList'
+import RecipeListPage from './pages/RecipeListPage'; // Correct import for RecipeListPage
 
 function App() {
-
   return (
-    <>
-<Home/>
-{/*       <Routes>
-        <Home />
-      <Route path="/" element={<Home />} />
-      <Route path="/RecipeList" element={<RecipeList />} />
-      </Routes> */}
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Define routes for your pages */}
+        <Route path="/" element={<Home />} />
+        <Route path="/recipe-list" element={<RecipeListPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
