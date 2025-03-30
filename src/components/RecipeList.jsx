@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect }from 'react';
-import Recipe from './recipe';
+import Recipe from './Recipe';
 
 const RecipeList = () => {
   //Initialize state to store recipes
