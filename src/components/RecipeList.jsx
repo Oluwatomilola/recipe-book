@@ -22,20 +22,20 @@ const RecipeList = () => {
     };
     fetchRecipes();
     }, []);
-
     // Render the recipe list
   return (
     <div className="recipe-list">
       {loading ? (
         <p>Loading...</p>
       ) :(
-      recipes.map((recipe, index) => (
-      <Recipe key={recipe.idMeal}
-          recipe={recipe} /><h3>{recipe.title}</h3><p>{recipe.preview}</p><p>Cooking Time: {recipe.cookingTime || 'N/A'}</p></>
-      </div>
-      ))}
-   
+      recipes.map((recipe) => (
+      <Recipe 
+      key={recipe.idMeal}
+      recipe={recipe} />
+      ))
+      )}
+    </div>
   );
 };
 
-export default RecipeList
+export default RecipeList;
