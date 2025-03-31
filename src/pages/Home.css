@@ -10,7 +10,7 @@
 body {
     background-color: #fefe;
     color: #ffff;
-    background-image: url(../src/assets/Background.jpg);
+    background-image: url(../assets/Background.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     margin: 0;
