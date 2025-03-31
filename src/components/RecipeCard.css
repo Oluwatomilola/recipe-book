@@ -51,3 +51,20 @@
   padding: 2rem;
   justify-items: center;
 }
+
+.favorite-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #f39c12; /* Gold color for favorite */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.favorite-button:hover {
+  transform: scale(1.2);
+}
+
+.favorite-button:focus {
+  outline: none;
+}

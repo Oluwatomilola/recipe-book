@@ -10,8 +10,14 @@ const RecipeListPage = () => {
     return savedRecipes ? JSON.parse(savedRecipes) : [];
   });
 
+  const [favorites, setFavorites] = useState(() => {
+    const savedFavorites = localStorage.getItem('favorites');
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
+
   const [showForm, setShowForm] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null); // Track the selected recipe for the modal
+  const [showFavorites, setShowFavorites] = useState(false); // Track whether to show favorite recipes
 
   const addRecipe = (newRecipe) => {
     const updatedRecipes = [...recipes, newRecipe];
@@ -26,6 +32,17 @@ const RecipeListPage = () => {
     localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
   };
 
+  const toggleFavorite = (id) => {
+    let updatedFavorites;
+    if (favorites.includes(id)) {
+      updatedFavorites = favorites.filter((favId) => favId !== id);
+    } else {
+      updatedFavorites = [...favorites, id];
+    }
+    setFavorites(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
+
   const viewFullRecipe = (recipe) => {
     setSelectedRecipe(recipe); // Set the selected recipe to display in the modal
   };
@@ -33,6 +50,10 @@ const RecipeListPage = () => {
   const closeRecipeModal = () => {
     setSelectedRecipe(null); // Close the modal by clearing the selected recipe
   };
+
+  const filteredRecipes = showFavorites
+    ? recipes.filter((recipe) => favorites.includes(recipe.id))
+    : recipes;
 
   return (
     <div className="recipe-list-page">
@@ -44,22 +65,27 @@ const RecipeListPage = () => {
         <button className="add-recipe-button" onClick={() => setShowForm(true)}>
           Add Recipe
         </button>
+        <button className="favorites-link" onClick={() => setShowFavorites(!showFavorites)}>
+          {showFavorites ? 'View All Recipes' : 'View Favorites'}
+        </button>
       </div>
 
-      <h1>Recipe List</h1>
-      {recipes.length === 0 && !showForm && (
+      <h1>{showFavorites ? 'Favorite Recipes' : 'Recipe List'}</h1>
+      {filteredRecipes.length === 0 && !showForm && (
         <div className="no-recipes">
           <p>No recipes found. Add your recipes here!</p>
         </div>
       )}
-      {recipes.length > 0 && (
+      {filteredRecipes.length > 0 && (
         <div className="recipe-list">
-          {recipes.map((recipe) => (
+          {filteredRecipes.map((recipe) => (
             <RecipeCard
               key={recipe.id}
               recipe={recipe}
               viewFullRecipe={viewFullRecipe}
               deleteRecipe={deleteRecipe} // Pass deleteRecipe to RecipeCard
+              toggleFavorite={toggleFavorite} // Pass toggleFavorite to RecipeCard
+              isFavorite={favorites.includes(recipe.id)} // Check if the recipe is a favorite
             />
           ))}
         </div>

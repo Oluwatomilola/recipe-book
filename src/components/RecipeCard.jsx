@@ -1,7 +1,7 @@
 import React from 'react';
 import './RecipeCard.css';
 
-const RecipeCard = ({ recipe, viewFullRecipe }) => {
+const RecipeCard = ({ recipe, viewFullRecipe, toggleFavorite, isFavorite }) => {
   const { title, description, prepTime, cookingTime } = recipe;
 
   return (
@@ -16,6 +16,9 @@ const RecipeCard = ({ recipe, viewFullRecipe }) => {
       </p>
       <button className="full-recipe-button" onClick={() => viewFullRecipe(recipe)}>
         Full Recipe
+      </button>
+      <button className="favorite-button" onClick={() => toggleFavorite(recipe.id)}>
+        {isFavorite ? '★' : '☆'} {/* Star icon for favorite */}
       </button>
     </div>
   );
