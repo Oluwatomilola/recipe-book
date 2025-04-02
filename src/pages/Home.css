@@ -74,7 +74,7 @@ body {
         body {
             background-size: cover;
             background-position: center;
-            height: 100%;
+            height: 110vh;
         }
 
         .About {
@@ -89,17 +89,10 @@ body {
    }
 
 @media screen and (max-width: 431px) {
-
-    body{
+    body {
         height: 110vh;
     }
-    .About {
-        width: 50vw;
-        height: 100%;
-    }
 
-    .intro {
-        width: 60vw;
     .About {
         width: 45vw;
     }
@@ -109,3 +102,8 @@ body {
     }
 }
 
+@media screen and (max-width: 391px) {
+    body {
+        height: 140vh;
+    }
+}
