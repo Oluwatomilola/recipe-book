@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../assets/logo.png';
 import './Home.css';
-import { Link } from 'react-router-dom'; // Correct import
+import { Link, NavLink } from 'react-router-dom'; // Correct import
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/recipe-list">Recipe List</Link>
+            <NavLink to="/recipe-list">Recipe List</NavLink>
           </li>
         </ul>
       </div>

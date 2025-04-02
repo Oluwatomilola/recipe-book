@@ -69,3 +69,31 @@ body {
     cursor: pointer;
     margin-top: 35px;
    }
+
+   @media screen and (max-width: 768px) {
+        body {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .About {
+            width: 65vw;
+        }
+
+        .intro {
+            width: 90%;
+        }
+
+        
+   }
+
+@media screen and (max-width: 431px) {
+    .About {
+        width: 45vw;
+    }
+
+    .intro {
+        width: 175%;
+    }
+}
+
