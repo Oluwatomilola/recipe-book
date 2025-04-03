@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard';
 import RecipeForm from '../components/RecipeForm';
@@ -19,17 +19,20 @@ const RecipeListPage = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(null); // Track the selected recipe for the modal
   const [showFavorites, setShowFavorites] = useState(false); // Track whether to show favorite recipes
 
+  // Sync recipes with local storage whenever they are updated
+  useEffect(() => {
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+  }, [recipes]);
+
   const addRecipe = (newRecipe) => {
     const updatedRecipes = [...recipes, newRecipe];
     setRecipes(updatedRecipes);
-    localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
     setShowForm(false); // Close the form after adding a recipe
   };
 
   const deleteRecipe = (id) => {
     const updatedRecipes = recipes.filter((recipe) => recipe.id !== id);
     setRecipes(updatedRecipes);
-    localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
   };
 
   const toggleFavorite = (id) => {
