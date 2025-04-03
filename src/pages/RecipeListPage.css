@@ -28,22 +28,26 @@
 /* Top-right corner links */
 .top-right-links {
   position: absolute;
-  top: 1rem;
+  top: 4rem;
   right: 1rem;
   display: flex;
   gap: 1rem;
 }
 
 .home-link {
+  background-color: #712e25;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   text-decoration: none;
   font-size: 1rem;
-  color: #712e25;
+  color: #f7e9ce;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .home-link:hover {
-  color: #a71d2a;
+  background-color: #f7e9ce;
+  color: #712e25;
 }
 
 .add-recipe-button {
@@ -58,30 +62,11 @@
 }
 
 .add-recipe-button:hover {
-  background-color: #a71d2a;
-}
-
-.top-right-links {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.home-link {
-  text-decoration: none;
-  font-size: 1rem;
+  background-color: #f7e9ce;
   color: #712e25;
-  font-weight: bold;
-  transition: color 0.3s ease;
 }
 
-.home-link:hover {
-  color: #a71d2a;
-}
-
-.add-recipe-button {
+.favorites-link {
   background-color: #712e25;
   color: #f7e9ce;
   padding: 0.5rem 1rem;
@@ -92,8 +77,9 @@
   transition: background-color 0.3s ease;
 }
 
-.add-recipe-button:hover {
-  background-color: #a71d2a;
+.favorites-link:hover {
+  background-color: #f7e9ce;
+  color: #712e25;
 }
 
 .close-modal {

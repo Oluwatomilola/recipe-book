@@ -14,10 +14,10 @@ const Home = () => {
 
         <ul className="nav">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className='link-home'>Home</Link>
           </li>
           <li>
-            <NavLink to="/recipe-list">Recipe List</NavLink>
+            <NavLink to="/recipe-list" className='link-home'>Recipe List</NavLink>
           </li>
         </ul>
       </div>
