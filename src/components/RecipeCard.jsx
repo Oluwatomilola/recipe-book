@@ -2,12 +2,15 @@ import React from 'react';
 import './RecipeCard.css';
 
 const RecipeCard = ({ recipe, viewFullRecipe, toggleFavorite, isFavorite , deleteRecipe}) => {
-  const { title, description, prepTime, cookingTime } = recipe;
+  const { title, prepTime, cookingTime } = recipe;
+  const truncatedDescription = recipe.description.length > 100
+    ? recipe.description.slice(0, 100) + "..."
+    : recipe.description;
 
   return (
     <div className="recipe-card">
       <h3 className="recipe-title">{title}</h3>
-      {description && <p className="recipe-description">{description}</p>}
+      {truncatedDescription && <p className="recipe-description">{truncatedDescription}</p>}
       <p className="recipe-time">
         <strong>Prep Time:</strong> {prepTime || 'N/A'}
       </p>

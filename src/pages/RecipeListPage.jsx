@@ -18,6 +18,7 @@ const RecipeListPage = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null); // Track the selected recipe for the modal
   const [showFavorites, setShowFavorites] = useState(false); // Track whether to show favorite recipes
+  const [isEditing, setIsEditing] = useState(false); // Track whether the user is editing a recipe
 
   // Sync recipes with local storage whenever they are updated
   useEffect(() => {
@@ -28,6 +29,15 @@ const RecipeListPage = () => {
     const updatedRecipes = [...recipes, newRecipe];
     setRecipes(updatedRecipes);
     setShowForm(false); // Close the form after adding a recipe
+  };
+
+  const editRecipe = (updatedRecipe) => {
+    const updatedRecipes = recipes.map((recipe) =>
+      recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+    );
+    setRecipes(updatedRecipes);
+    setIsEditing(false); // Exit editing mode
+    setSelectedRecipe(null); // Close the modal
   };
 
   const deleteRecipe = (id) => {
@@ -53,6 +63,7 @@ const RecipeListPage = () => {
 
   const closeRecipeModal = () => {
     setSelectedRecipe(null); // Close the modal by clearing the selected recipe
+    setIsEditing(false); // Exit editing mode if active
   };
 
   const filteredRecipes = showFavorites
@@ -101,7 +112,7 @@ const RecipeListPage = () => {
           </div>
         </div>
       )}
-      {selectedRecipe && (
+      {selectedRecipe && !isEditing && (
         <div className="modal">
           <div className="modal-content">
             <h2>{selectedRecipe.title}</h2>
@@ -109,10 +120,27 @@ const RecipeListPage = () => {
             <p><strong>Ingredients:</strong> {selectedRecipe.ingredients.join(', ')}</p>
             <p><strong>Instructions:</strong> {selectedRecipe.instructions}</p>
             <p><strong>Prep Time:</strong> {selectedRecipe.prepTime || 'N/A'}</p>
-            <p><strong>Cook Time:</strong> {selectedRecipe.cookingTime || 'N/A'}</p>
+            <p><strong>Cook Time:</strong> {selectedRecipe.cookTime || 'N/A'}</p>
             <button className="close-modal" onClick={closeRecipeModal}>
               Close
             </button>
+            <button
+              className="edit-recipe-button"
+              onClick={() => setIsEditing(true)}
+            >
+              Edit Recipe
+            </button>
+          </div>
+        </div>
+      )}
+      {isEditing && (
+        <div className="modal">
+          <div className="modal-content">
+            <RecipeForm
+              addRecipe={editRecipe} // Use the editRecipe function
+              closeForm={closeRecipeModal}
+              initialData={selectedRecipe} // Pass the selected recipe as initial data
+            />
           </div>
         </div>
       )}

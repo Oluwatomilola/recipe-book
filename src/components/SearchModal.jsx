@@ -50,7 +50,7 @@ const SearchModal = ({ isOpen, onClose }) => {
       id: recipe.id, // Use the Spoonacular recipe ID
       title: recipe.title,
       description: recipe.summary
-        ? recipe.summary.replace(/<[^>]+>/g, "").slice(0, 100) + "..."
+        ? recipe.summary.replace(/<[^>]+>/g, "") // Save the full description
         : "No description available.",
       ingredients: recipe.extendedIngredients
         ? recipe.extendedIngredients.map((ingredient) => ingredient.original)
@@ -61,11 +61,11 @@ const SearchModal = ({ isOpen, onClose }) => {
       prepTime: recipe.preparationMinutes || "N/A",
       cookTime: recipe.cookingMinutes || "N/A",
     };
-
+  
     // Save the recipe to localStorage
     const savedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
     localStorage.setItem("recipes", JSON.stringify([...savedRecipes, recipeData]));
-
+  
     alert("Recipe added to the Recipe List!");
   };
 

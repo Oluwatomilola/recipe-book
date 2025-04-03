@@ -1,41 +1,70 @@
 .modal {
-    display: flex;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-  }
-  
-  .scrollable {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-top: 20px;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-  }
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #f7e9ce; 
+  padding: 20px;
+  border: 1px solid #f7e9ce;
+  width: 85%; 
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.close {
+  color: #712e25; /* Project color */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Style for the input field */
+input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border: 1px solid #712e25; 
+  color: #712e25;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+button,
+.recipe-item button {
+  background-color: #712e25; 
+  color: #f7e9ce;
+  border: none;
+  padding: 5px 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5a231d; 
+}
+
+.recipe-item button:hover {
+  background-color: #5a231d; 
+}
