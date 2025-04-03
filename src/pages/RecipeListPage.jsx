@@ -33,6 +33,7 @@ const RecipeListPage = () => {
   const deleteRecipe = (id) => {
     const updatedRecipes = recipes.filter((recipe) => recipe.id !== id);
     setRecipes(updatedRecipes);
+    alert("Recipe deleted successfully!");
   };
 
   const toggleFavorite = (id) => {

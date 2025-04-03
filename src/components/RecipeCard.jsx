@@ -1,7 +1,7 @@
 import React from 'react';
 import './RecipeCard.css';
 
-const RecipeCard = ({ recipe, viewFullRecipe, toggleFavorite, isFavorite }) => {
+const RecipeCard = ({ recipe, viewFullRecipe, toggleFavorite, isFavorite , deleteRecipe}) => {
   const { title, description, prepTime, cookingTime } = recipe;
 
   return (
@@ -20,6 +20,7 @@ const RecipeCard = ({ recipe, viewFullRecipe, toggleFavorite, isFavorite }) => {
       <button className="favorite-button" onClick={() => toggleFavorite(recipe.id)}>
         {isFavorite ? '★' : '☆'} {/* Star icon for favorite */}
       </button>
+      <button onClick={() => deleteRecipe(recipe.id)}>Delete Recipe</button>
     </div>
   );
 };
