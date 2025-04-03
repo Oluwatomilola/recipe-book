@@ -61,13 +61,19 @@ body {
 
    .search {
     font-size: 1.5rem;
-    padding: 12px;
+    padding: 8px;
     border-radius: 30px;
     border-color: #712e25;
-    color: #712e25;
-    background-color: #f7e9ce;
+    color: #f7e9ce;
+    background-color: #712e25;
     cursor: pointer;
-    margin-top: 35px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+   }
+
+   .search:hover {
+    background-color: #f7e9ce;
+    color: #712e25;
    }
 
    .link-home{
