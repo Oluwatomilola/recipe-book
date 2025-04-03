@@ -97,3 +97,12 @@
   background-color: #a71d2a;
   color: #f7e9ce;
 }
+
+.no-recipes {
+  position: fixed;
+  bottom: 18rem;
+  right: 10rem;
+  font-size: 1.5rem;
+  color: #712e25;
+  margin-top: 2rem;
+}
