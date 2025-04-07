@@ -24,14 +24,23 @@
 }
 
 .recipe-time {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-card-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .full-recipe-button {
   background-color: #712e25;
   color: #f7e9ce;
-  padding: 0.75rem 1.5rem;
+  padding: 0.50rem 0.75rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -41,6 +50,20 @@
 .full-recipe-button:hover {
   background-color: #f7e9ce;
   color: #712e25;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: #f7e9ce;
+  padding: 0.50rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
 }
 
 /* Grid layout for recipe cards */
@@ -54,6 +77,7 @@
 
 .favorite-button {
   background: none;
+  padding: 5px;
   border: none;
   font-size: 1.5rem;
   color: #f39c12; /* Gold color for favorite */
@@ -62,7 +86,7 @@
 }
 
 .favorite-button:hover {
-  transform: scale(1.2);
+  background-color: #f7e9ce;
 }
 
 .favorite-button:focus {

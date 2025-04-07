@@ -19,6 +19,8 @@ const RecipeListPage = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(null); // Track the selected recipe for the modal
   const [showFavorites, setShowFavorites] = useState(false); // Track whether to show favorite recipes
   const [isEditing, setIsEditing] = useState(false); // Track whether the user is editing a recipe
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false); // Track whether the delete confirmation modal is open
+  const [recipeToDelete, setRecipeToDelete] = useState(null); // Track the recipe to be deleted
 
   // Sync recipes with local storage whenever they are updated
   useEffect(() => {
@@ -40,10 +42,16 @@ const RecipeListPage = () => {
     setSelectedRecipe(null); // Close the modal
   };
 
-  const deleteRecipe = (id) => {
-    const updatedRecipes = recipes.filter((recipe) => recipe.id !== id);
+  const confirmDeleteRecipe = (id) => {
+    setRecipeToDelete(id); // Set the recipe to be deleted
+    setDeleteModalOpen(true); // Open the delete confirmation modal
+  };
+
+  const deleteRecipe = () => {
+    const updatedRecipes = recipes.filter((recipe) => recipe.id !== recipeToDelete);
     setRecipes(updatedRecipes);
-    alert("Recipe deleted successfully!");
+    setDeleteModalOpen(false); // Close the delete confirmation modal
+    setRecipeToDelete(null); // Clear the recipe to delete
   };
 
   const toggleFavorite = (id) => {
@@ -64,6 +72,11 @@ const RecipeListPage = () => {
   const closeRecipeModal = () => {
     setSelectedRecipe(null); // Close the modal by clearing the selected recipe
     setIsEditing(false); // Exit editing mode if active
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteModalOpen(false); // Close the delete confirmation modal
+    setRecipeToDelete(null); // Clear the recipe to delete
   };
 
   const filteredRecipes = showFavorites
@@ -92,19 +105,21 @@ const RecipeListPage = () => {
         </div>
       )}
       {filteredRecipes.length > 0 && (
+      <div className="recipe-list-container">
         <div className="recipe-list">
           {filteredRecipes.map((recipe) => (
             <RecipeCard
               key={recipe.id}
               recipe={recipe}
               viewFullRecipe={viewFullRecipe}
-              deleteRecipe={deleteRecipe} // Pass deleteRecipe to RecipeCard
-              toggleFavorite={toggleFavorite} // Pass toggleFavorite to RecipeCard
-              isFavorite={favorites.includes(recipe.id)} // Check if the recipe is a favorite
+              deleteRecipe={() => confirmDeleteRecipe(recipe.id)} // Open delete confirmation modal
+              toggleFavorite={toggleFavorite}
+              isFavorite={favorites.includes(recipe.id)}
             />
           ))}
         </div>
-      )}
+      </div>
+    )}
       {showForm && (
         <div className="modal">
           <div className="modal-content">
@@ -137,10 +152,26 @@ const RecipeListPage = () => {
         <div className="modal">
           <div className="modal-content">
             <RecipeForm
-              addRecipe={editRecipe} // Use the editRecipe function
+              addRecipe={editRecipe}
               closeForm={closeRecipeModal}
-              initialData={selectedRecipe} // Pass the selected recipe as initial data
+              initialData={selectedRecipe}
             />
+          </div>
+        </div>
+      )}
+      {deleteModalOpen && (
+        <div className="modal">
+          <div className="modal-content-confirm">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete this recipe?</p>
+            <div className="modal-buttons">
+              <button className="confirm-button" onClick={deleteRecipe}>
+                Yes
+              </button>
+              <button className="cancel-button" onClick={closeDeleteModal}>
+                No
+              </button>
+            </div>
           </div>
         </div>
       )}
