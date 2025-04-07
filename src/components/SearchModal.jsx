@@ -25,10 +25,10 @@ const SearchModal = ({ isOpen, onClose }) => {
 
   const fetchRecipeDetails = async (id) => {
     setLoading(true);
-    try {  
-      const apiKey = import.meta.env.VITE_REACT_RECIPE_API_KEY;
+    try {
+      const apiKey = import.meta.env.VITE_REACT_RECIPE_API_KEY; 
       const response = await fetch(
-        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
+        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}` 
       );
       const data = await response.json();
       setSelectedRecipe(data);
