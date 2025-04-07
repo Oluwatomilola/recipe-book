@@ -10,7 +10,7 @@ const SearchModal = ({ isOpen, onClose }) => {
   const fetchRecipes = async (query) => {
     setLoading(true);
     try {
-      const apiKey = "Api"; // Replace with your Spoonacular API key
+      const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
       const response = await fetch(
         `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${apiKey}`
       );
@@ -26,7 +26,7 @@ const SearchModal = ({ isOpen, onClose }) => {
   const fetchRecipeDetails = async (id) => {
     setLoading(true);
     try {
-      const apiKey = "Api"; 
+      const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
       const response = await fetch(
         `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
       );

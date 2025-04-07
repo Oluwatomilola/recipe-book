@@ -143,7 +143,7 @@
 
 /* Scrollable container for recipe cards */
 .recipe-list-container {
-  max-height: 450px; /* Set a fixed height for the container */
+  max-height: 490px; /* Set a fixed height for the container */
   overflow-y: auto; /* Enable vertical scrolling */
   padding: 0.5rem;
   margin-top: 45px;
