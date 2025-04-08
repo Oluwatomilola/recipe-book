@@ -156,3 +156,34 @@
   gap: 1rem;
   justify-items: center;
 }
+
+@media screen and (max-width: 768px) {
+  .no-recipes {
+    bottom: 18rem;
+    right: 15px;
+    width: 50%;
+    
+  }
+}
+
+
+@media screen and (max-width: 431px) {
+  .no-recipes {
+    right: 5rem;
+    bottom: 23em;
+    position: static;
+    margin: 13em 0 0 9rem;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .no-recipes {
+      margin: 13em 0 0 7em;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .no-recipes {
+    margin: 13em 0 0 5em;
+  }
+}
