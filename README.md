@@ -27,7 +27,7 @@ The Recipe Book is a web application where users can browse, search, and share r
 
 This project is built using the following technologies:
 
-- **JavaScript**: For dynamic front-end functionality.
+- **Reactjs**: For dynamic front-end functionality.
 - **CSS**: For styling and layout.
 - **HTML**: For structuring the web pages.
 
